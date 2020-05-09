@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zlx.mapper.UserMapper">
+    <select id="selectUserByUsername" resultType="User">
+  	select * from user where username = #{0} and password = #{1}
+    </select>
+    <insert id="insertUserInfo" parameterType="User">
+  	insert into user values (#{uid},#{username},#{password},#{name},#{email},#{telephone},#{birthday},#{sex},#{state},#{code})
+     </insert>
+    <select id="countUserByUserName" parameterType="String" resultType="Integer">
+  	select count(*) from user where username = #{username}
+  </select>
+</mapper>
